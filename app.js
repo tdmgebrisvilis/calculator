@@ -32,6 +32,11 @@ function emulateClick(e) {
     const key = document.querySelector(`button[data-value="${e.key}"]`);
     if (!key) return;
     key.click(); 
+    key.classList.add('active');
+    setTimeout(() => {
+        key.classList.remove('active');
+    }, 50);
+
 }
 
 function changeOperator(e){
