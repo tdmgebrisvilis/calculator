@@ -12,25 +12,32 @@ bottomDisplay.innerText = 0; // initial display value
 const equalsButton = document.querySelector('#result');
 const decimalPoint = document.querySelector('#decimalPoint');
 
-// event listeners:
+// Click event listeners:
 numbers.forEach(number => number.addEventListener('click', pushNumToBottomDisplay));
 decimalPoint.addEventListener('click', addDecimalPoint);
 clearButton.addEventListener('click', clearDisplay);
 clearEntryButton.addEventListener('click', clearEntry);
-operators.forEach(operator => {
-    if (topDisplay.innerText.indexOf(' ') === -1) operator.addEventListener('click', addToMemory)
-    operator.addEventListener('click', operate)
-})
 equalsButton.addEventListener('click', operate);
+operators.forEach(operator => {
+    operator.addEventListener('click', changeOperator)
+    operator.addEventListener('click', operate);
+    operator.addEventListener('click', addToMemory);
+})
 
 // functions: 
+function changeOperator(e){
+    let slicedTopDisplay = topDisplay.innerText.slice(0, -1)
+    if (topDisplay.innerText.indexOf(' ') === topDisplay.innerText.length-2 && bottomDisplay.innerText === '') {
+        topDisplay.innerText = slicedTopDisplay += e.target.innerText
+    } 
+}
 
 const add = (num1, num2) => bottomDisplay.innerText = num1 + num2
 const subtract = (num1, num2) => bottomDisplay.innerText = num1 - num2
 const multiply = (num1, num2) => bottomDisplay.innerText = num1 * num2
 const divide = (num1, num2) => {
     if(num2 === 0){
-        bottomDisplay.innerText = "Sorry, you can't divide by 0 ;)"
+        bottomDisplay.innerText = "Oops, you can't divide by 0 ;)"
         display.classList.add('crackedScreen');
     } else bottomDisplay.innerText = num1 / num2
 }
@@ -111,3 +118,4 @@ function pushNumToBottomDisplay(e) {
         ) bottomDisplay.innerText = bottomDisplay.innerText.slice(1);
     adjustDisplay()
 }
+
