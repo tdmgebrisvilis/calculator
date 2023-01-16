@@ -2,29 +2,32 @@ body {
     display: flex;
     justify-content: center;
     font-family: JetBrains Mono, sans-serif;
+    background: #f8f2f3;
 }
 .calculator {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: #343633;
     margin-top: 80px;
     width: 450px;
     border: 1px solid black;
-    border-radius: 10px;
+    border-radius: 30px;
     padding-bottom: 10px;
 }
 .displayContainer {
+    background: #cce3de;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
     border: 1px solid black;
-    width: 90%;
+    width: 85%;
     height: auto;
     min-height: 150px;
-    border-radius: 10px;
-    margin: 20px 0 10px;
+    border-radius: 30px;
+    margin: 40px 0 10px;
     padding: 10px;
     text-align: right;
 
@@ -51,13 +54,19 @@ body {
     font-size: 30px;
 }
 button {
+    background: #ffbe0b;
     margin: 10px;
     box-sizing: border-box;
     width: 80px;
     height: 80px;
     border: 1px solid black;
-    border-radius: 10px;
+    border-radius: 30px;
     transition: all 0.01s ease;
+    font-size: 30px;
+    font-weight: 500;
+}
+button:focus {
+    outline: none;
 }
 button:hover {
     border: 2px solid black;
@@ -70,7 +79,20 @@ button:active {
 
 #clear,
 #clearEntry {
-    width: 160px;
+    background: #ff000e;
+    width: 170px;
+}
+
+#result {
+    background: #8ac926;
+}
+
+.operator {
+    background: #00cecb;
+}
+
+#decimalPoint {
+    background: #f15bb5;
 }
 
 @media (max-width: 450px) {
@@ -83,5 +105,7 @@ button:active {
 }
 
 .crackedScreen {
-    background: url(./imgs/crack-31127.png) center;
+    background: #cce3de url(./imgs/crack-31127.png) center;
+    /* background: #cce3de; */
+
 }

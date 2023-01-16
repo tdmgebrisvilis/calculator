@@ -23,8 +23,17 @@ operators.forEach(operator => {
     operator.addEventListener('click', operate);
     operator.addEventListener('click', addToMemory);
 })
+// Keydown event listener:
+window.addEventListener('keydown', emulateClick)
 
 // functions: 
+
+function emulateClick(e) {
+    const key = document.querySelector(`button[data-value="${e.key}"]`);
+    if (!key) return;
+    key.click(); 
+}
+
 function changeOperator(e){
     let slicedTopDisplay = topDisplay.innerText.slice(0, -1)
     if (topDisplay.innerText.indexOf(' ') === topDisplay.innerText.length-2 && bottomDisplay.innerText === '') {
@@ -33,7 +42,7 @@ function changeOperator(e){
 }
 
 const add = (num1, num2) => bottomDisplay.innerText = num1 + num2
-const subtract = (num1, num2) => bottomDisplay.innerText = num1 - num2
+const subtract = (num1, num2) => bottomDisplay.innerText = num1 -= num2
 const multiply = (num1, num2) => bottomDisplay.innerText = num1 * num2
 const divide = (num1, num2) => {
     if(num2 === 0){
@@ -71,7 +80,8 @@ function operate(e){
 }
 
 function addToMemory(e) {
-    if (bottomDisplay.innerText.indexOf('.') === bottomDisplay.innerText.length-1) return
+    if (bottomDisplay.innerText.indexOf('.') === bottomDisplay.innerText.length-1) return;
+    if (display.classList.contains('crackedScreen')) return;
     if (topDisplay.innerText.indexOf('=') !== -1) {
         topDisplay.innerText = bottomDisplay.innerText += ` ${e.target.innerText}`;
         bottomDisplay.innerText = '';
@@ -110,7 +120,7 @@ function adjustDisplay(){
 
 function pushNumToBottomDisplay(e) {
     if (topDisplay.innerText[topDisplay.innerText.length-1] === '=') return
-    bottomDisplay.innerText += e.target.value;
+    bottomDisplay.innerText += e.target.innerText;
     if(
         bottomDisplay.innerText[0] === '0' 
         && bottomDisplay.innerText[1] !== '.' 
