@@ -103,6 +103,7 @@ function clearEntry(e) {
         bottomDisplay.innerText = bottomDisplay.innerText.slice(0, -1)
         if (bottomDisplay.innerText.length === 0 && !topDisplay.innerText.length) bottomDisplay.innerText = 0
     }
+    adjustDisplay()
 }
 
 function clearDisplay(e) {
@@ -118,12 +119,13 @@ function addDecimalPoint(){
 }
 
 function adjustDisplay(){
-    bottomDisplay.innerText.length < 15
+    bottomDisplay.innerText.length <= 15
     ? bottomDisplay.style.fontSize = ('40px')
-    : bottomDisplay.style.fontSize = ('20px');
+    : bottomDisplay.style.fontSize = ('30px');
 }
 
 function pushNumToBottomDisplay(e) {
+    if (bottomDisplay.innerText.length > 14) return
     if (topDisplay.innerText[topDisplay.innerText.length-1] === '=') return
     bottomDisplay.innerText += e.target.innerText;
     if(
