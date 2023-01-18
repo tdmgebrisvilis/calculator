@@ -114,6 +114,7 @@ function clearDisplay(e) {
 }
 
 function addDecimalPoint(){
+    if (topDisplay.innerText[topDisplay.innerText.length-1] === '=') return
     if (bottomDisplay.innerText.indexOf('.') === -1 && bottomDisplay.innerText === '') bottomDisplay.innerText += '0.'
     if (bottomDisplay.innerText.indexOf('.') === -1 && parseInt(bottomDisplay.innerText) >= 0) bottomDisplay.innerText += '.'
 }
