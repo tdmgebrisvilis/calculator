@@ -2,7 +2,8 @@ body {
     display: flex;
     justify-content: center;
     font-family: JetBrains Mono, sans-serif;
-    background: #f8f2f3;
+    /* background: #f8f2f3; */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url(imgs/number_background.jpg);
 }
 .calculator {
     display: flex;

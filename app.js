@@ -4,6 +4,7 @@ const display = document.querySelector('.displayContainer')
 const topDisplay = document.querySelector('.topDisplay');
 const bottomDisplay = document.querySelector('.bottomDisplay');
 // buttons:
+const allButtons = document.querySelectorAll('button');
 const numbers = document.querySelectorAll('.number');
 const operators = document.querySelectorAll('.operator');
 const clearButton = document.querySelector('#clear');
@@ -31,6 +32,7 @@ window.addEventListener('keydown', emulateClick)
 function emulateClick(e) {
     const key = document.querySelector(`button[data-value="${e.key}"]`);
     if (!key) return;
+    if(e.keyCode === 13) e.preventDefault(); // this fixes the bug when pressing "enter" also presses last clicked button
     key.click(); 
     key.classList.add('active');
     setTimeout(() => {
