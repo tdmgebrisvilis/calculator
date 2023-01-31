@@ -1,9 +1,9 @@
 body {
     display: flex;
     justify-content: center;
-    font-family: JetBrains Mono, sans-serif;
+    /* font-family: JetBrains Mono, sans-serif; */
     /* background: #f8f2f3; */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url(imgs/number_background.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(imgs/number_background.jpg);
 }
 .calculator {
     display: flex;
@@ -16,7 +16,9 @@ body {
     border: 1px solid black;
     border-radius: 30px;
     padding-bottom: 10px;
-    box-shadow: 5px 5px 15px -5px #000000;
+    /* box-shadow: 5px 5px 15px -5px #000000; */
+    -webkit-box-shadow: 1px -1px 14px 0px rgba(0,0,0,0.7); 
+    box-shadow: 1px -1px 14px 0px rgba(0,0,0,0.7);
 }
 .displayContainer {
     background: #cce3de;
@@ -32,7 +34,9 @@ body {
     margin: 40px 0 10px;
     padding: 10px;
     text-align: right;
-
+    -webkit-box-shadow: 1px -1px 14px 0px rgba(0,0,0,0.7); 
+    box-shadow: 1px -1px 14px 0px rgba(0,0,0,0.7);
+    font-family: 'Oswald', sans-serif;
 }
 
 .topDisplay {
@@ -46,6 +50,7 @@ body {
     max-width: 95%;
     overflow-wrap: break-word;
     font-size: 40px;
+    font-weight: 500;
 }
 
 .buttons {
@@ -66,6 +71,9 @@ button {
     transition: all 0.01s ease;
     font-size: 30px;
     font-weight: 500;
+    -webkit-box-shadow: 1px -1px 14px 0px rgba(0,0,0,0.7); 
+    box-shadow: 1px -1px 14px 0px rgba(0,0,0,0.7);
+    opacity: 90%;
 }
 button:focus {
     outline: none;
